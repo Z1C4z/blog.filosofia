@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simplificando a Semiologia</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #000000;
+      --secondary-color: #333333;
+      --accent-color: #666666;
+      --light-color: #f8f9fa;
+      --dark-color: #212529;
+      --text-color: #333;
+      --text-light: #f8f9fa;
+    }
+
+    [data-bs-theme="dark"] {
+      --primary-color: #ffffff;
+      --secondary-color: #cccccc;
+      --accent-color: #999999;
+      --light-color: #212529;
+      --dark-color: #f8f9fa;
+      --text-color: #f8f9fa;
+      --text-light: #333;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+      background-color: var(--light-color);
+      transition: all 0.3s ease;
+    }
+
+    .navbar {
+      background-color: var(--primary-color) !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      transition: all 0.3s ease;
+      color: white !important;
+      margin: 0 10px;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: white;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .hero-section {
+      position: relative;
+      padding: 4rem 0;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    }
+
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      align-items: center;
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .hero-image {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .hero-image:hover img {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+    }
+
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(51,51,51,0.9) 0%, rgba(51,51,51,0) 100%);
+      z-index: 0;
+    }
+
+    .section-title {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 70%;
+      width: 5px;
+      background: var(--accent-color);
+      border-radius: 5px;
+    }
+
+    .member-card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      height: 100%;
+      background-color: rgba(var(--bs-primary-rgb), 0.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .member-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .member-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .member-card:hover::before {
+      opacity: 1;
+    }
+
+    .member-icon {
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .member-card:hover .member-icon {
+      transform: scale(1.2);
+      color: var(--primary-color);
+    }
+
+    .mission-statement {
+      font-style: italic;
+      text-align: center;
+      padding: 2rem;
+      border-top: 2px solid var(--accent-color);
+      border-bottom: 2px solid var(--accent-color);
+      margin: 3rem 0;
+      background-color: rgba(var(--bs-primary-rgb), 0.05);
+      border-radius: 10px;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+
+<body data-bs-theme="light">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-stethoscope me-2"></i>
+        Blog.Filosofia
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#inicio">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#equipe">Equipe</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#integrantes">Integrantes</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="inicio">
+    <div class="hero-container">
+      <div class="hero-image">
+        <img src="https://cdn.progresso.com.br/img/pc/780/530/dn_arquivo/2022/08/design-sem-nome-12.png" 
+             alt="aaaa">
+      </div>
+    
+      <div class="hero-content">
+        <h1 class="hero-title display-4 fw-bold mb-4">Bem-vindo ao Blog de Filosofia</h1>
+        <p class="lead mb-4">Confira as Postagens</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Target Audience -->
+  <section class="my-5" id="equipe">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h2 class="section-title">Nossa Equipe</h2>
+          <p class="lead">
+            Estudantes da Escola Estadual Padre João Parreira Villaça do <br>3º Ano Amarelo.
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <img src="img.jpg" alt="aaaa" class="img-fluid rounded shadow">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+    <section id="integrantes" class="my-5 py-4">
+        <div class="container">
+            <h2 class="section-title">Nossos Integrantes</h2>
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-4">
+                    <div class="member-card text-center p-4 shadow-lg rounded">
+                    <i class="fas fa-user member-icon mb-3"></i>
+                    <h5 class="card-title">Daniel Mendes</h5>
+                    <hr>
+                    <p class="card-text">Olá, me chamo Daniel Mendes, tenho 17 anos e nasci no dia 04 de janeiro de 2008 em Divinópolis MG, sou registrado como Divinopolitano, mas cresci em Carmo do Cajuru então me considero como Cajuruense, atualmente estudo na série do 3° ano do EM na Escola Estadual Padre João Parreiras Villaça, sou uma pessoa comunicativa e agradável com todos, nas minhas horas vagas gosto de escutar música e ficar pensando na minha vida, gosto também de curtir o tempo com a família e amigos, visando profissionalmente ser empresário na área de veículos.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-4">
+                    <div class="member-card text-center p-4 shadow-lg rounded">
+                    <i class="fas fa-user member-icon mb-3"></i>
+                    <h5 class="card-title">Júlia Rabelo Pereira</h5>
+                    <hr>
+                    <p class="card-text">Me chamo Júlia Rabelo Pereira, nasci em Divinopólis-MG no dia 13 de fevereiro de 2008, atualmente tenho 17 anos e estou no 3º ano do EM na Escola Estadual Padre João Parreiras Villaça, o que mais gosto de fazer nas horas vagas e aprender e descobrir novos hobbies, meu sonho é atuar em biomedicina ou em investigação forense e perícia criminal.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-4">
+                    <div class="member-card text-center p-4 shadow-lg rounded">
+                    <i class="fas fa-user member-icon mb-3"></i>
+                    <h5 class="card-title">Vinicius Rabelo de Souza</h5>
+                    <hr>
+                    <p class="card-text">Meu nome é Vinícius Rabelo de Souza, tenho 17 anos , nasci em 13/02/2008 na cidade de Divinópolis, mas moro atualmente em Carmo do Cajuru. Estudo na escola Padre João Parreiras Villaça.Sou uma pessoa muito introvertida mas quando preciso sou comunicativo, gosto de praticar bastante esportes e o que jogo atualmente é o vôlei, que está abrindo grandes portas para mim. Pretendo continuar com isso, ou então me tornar fisioterapeuta.</p>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="col-md-6">
+                    <div class="member-card text-center p-4 shadow-lg rounded">
+                    <i class="fas fa-user member-icon mb-3"></i>
+                    <h5 class="card-title">João Pedro Rodrigues Pereira</h5>
+                    <hr>
+                    <p class="card-text">Meu nome é João Pedro Rodrigues Pereira,nasci em Divinopolis-MG,no dia 14 de março de 2008,atualmente tenho 17 anos, estudo na Escola Estadual Padre Joao Parreiras Vilaça e estou no 3 ano do ensino médio,a coisa que mais gosto de fazer é assistir e jogar futebol e a faculdade que eu gostaria de fazer é educação física ou contabilidade.</p>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="col-md-6">
+                    <div class="member-card text-center p-4 shadow-lg rounded">
+                    <i class="fas fa-user member-icon mb-3"></i>
+                    <h5 class="card-title">André Luis</h5>
+                    <hr>
+                    <p class="card-text">Opa, meu eu sou o André tenho 17 anos nasci na cidade de divinopilis porem sempre vive minha vida na em Carmo cajuru - MG. Sou uma pessoa introvertida até anti-social, sou um estudante de progração e futuramente quero me tornar um desenvolvedor de jogos digitais publicando minhas próprias criações.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Footer -->
+  <footer class="text-center" id="contato">
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
