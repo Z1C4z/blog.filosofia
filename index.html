@@ -3,221 +3,164 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simplificando a Semiologia</title>
+  <title>Blog.Filosofia</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #000000;
-      --secondary-color: #333333;
-      --accent-color: #666666;
+      --primary-color: #2c3e50;
+      --secondary-color: #3498db;
+      --accent-color: #e74c3c;
       --light-color: #f8f9fa;
-      --dark-color: #212529;
-      --text-color: #333;
-      --text-light: #f8f9fa;
+      --dark-color: #2c3e50;
+      --text-color: #34495e;
     }
 
     [data-bs-theme="dark"] {
-      --primary-color: #ffffff;
-      --secondary-color: #cccccc;
-      --accent-color: #999999;
-      --light-color: #212529;
-      --dark-color: #f8f9fa;
-      --text-color: #f8f9fa;
-      --text-light: #333;
+      --primary-color: #ecf0f1;
+      --secondary-color: #3498db;
+      --accent-color: #e74c3c;
+      --light-color: #2c3e50;
+      --dark-color: #ecf0f1;
+      --text-color: #ecf0f1;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Open Sans', sans-serif;
       color: var(--text-color);
       background-color: var(--light-color);
-      transition: all 0.3s ease;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Philosopher', sans-serif;
     }
 
     .navbar {
-      background-color: var(--primary-color) !important;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar-brand {
-      font-weight: 600;
-    }
-
-    .nav-link {
-      font-weight: 500;
-      transition: all 0.3s ease;
-      color: white !important;
-      margin: 0 10px;
-      position: relative;
-    }
-
-    .nav-link:hover {
-      transform: translateY(-2px);
-      opacity: 0.9;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: white;
-      transition: width 0.3s ease;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
+      background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
     .hero-section {
       position: relative;
-      padding: 4rem 0;
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    }
-
-    .hero-container {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      align-items: center;
-      gap: 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    .hero-image {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-image img {
-      width: 100%;
-      max-width: 500px;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .hero-image:hover img {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
+      padding: 8rem 0;
+      background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.8)),
+                  url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
       color: white;
     }
 
-    .hero-section::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 45%;
-      height: 100%;
-      background: linear-gradient(90deg, rgba(51,51,51,0.9) 0%, rgba(51,51,51,0) 100%);
-      z-index: 0;
-    }
-
-    .section-title {
-      position: relative;
-      padding-left: 20px;
-      margin-bottom: 2rem;
-      font-weight: 600;
-    }
-
-    .section-title::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      height: 70%;
-      width: 5px;
-      background: var(--accent-color);
-      border-radius: 5px;
-    }
-
     .member-card {
+      transition: all 0.3s ease;
       border: none;
       border-radius: 15px;
       overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
       height: 100%;
-      background-color: rgba(var(--bs-primary-rgb), 0.1);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      position: relative;
-      z-index: 1;
-    }
-
-    .member-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.3s ease;
     }
 
     .member-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .member-card:hover::before {
-      opacity: 1;
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     }
 
     .member-icon {
       font-size: 2.5rem;
-      color: var(--accent-color);
+      color: var(--secondary-color);
       margin-bottom: 1rem;
       transition: all 0.3s ease;
     }
 
     .member-card:hover .member-icon {
       transform: scale(1.2);
-      color: var(--primary-color);
+      color: var(--accent-color);
     }
 
-    .mission-statement {
-      font-style: italic;
-      text-align: center;
-      padding: 2rem;
-      border-top: 2px solid var(--accent-color);
-      border-bottom: 2px solid var(--accent-color);
-      margin: 3rem 0;
-      background-color: rgba(var(--bs-primary-rgb), 0.05);
-      border-radius: 10px;
-    }
-
-    footer {
-      background-color: var(--primary-color);
+    .theme-switcher {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary-color);
       color: white;
-      padding: 2rem 0;
-      margin-top: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .era-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
+
+    .era-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .quote-card {
+      border-left: 4px solid var(--secondary-color);
+      background: rgba(52, 152, 219, 0.1);
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .fil-section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 5px;
+      background: var(--secondary-color);
+      border-radius: 5px;
+    }
+
+    .timeline-connector {
+      border-left: 3px dashed var(--secondary-color);
+      height: 40px;
+      margin: 0 auto;
+      width: 1px;
     }
   </style>
 </head>
 
 <body data-bs-theme="light">
+  <!-- Theme Switcher -->
+  <div class="theme-switcher" onclick="toggleTheme()">
+    <i class="fas fa-moon"></i>
+  </div>
+
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <i class="fas fa-stethoscope me-2"></i>
+        <i class="fas fa-brain me-2"></i>
         Blog.Filosofia
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -225,15 +168,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#inicio">Início</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#equipe">Equipe</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#integrantes">Integrantes</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#equipe">Equipe</a></li>
+          <li class="nav-item"><a class="nav-link" href="#integrantes">Integrantes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#filosofia-antiga">Filosofia Antiga</a></li>
+          <li class="nav-item"><a class="nav-link" href="#protagoras">Protágoras</a></li>
         </ul>
       </div>
     </div>
@@ -241,99 +180,375 @@
 
   <!-- Hero Section -->
   <section class="hero-section" id="inicio">
-    <div class="hero-container">
-      <div class="hero-image">
-        <img src="https://cdn.progresso.com.br/img/pc/780/530/dn_arquivo/2022/08/design-sem-nome-12.png" 
-             alt="aaaa">
-      </div>
-    
-      <div class="hero-content">
-        <h1 class="hero-title display-4 fw-bold mb-4">Bem-vindo ao Blog de Filosofia</h1>
-        <p class="lead mb-4">Confira as Postagens</p>
-      </div>
+    <div class="container text-center">
+      <h1 class="display-3 fw-bold mb-4">Bem-vindo ao Blog de Filosofia</h1>
+      <p class="lead mb-4">Explorando as grandes questões do pensamento humano</p>
+      <img src="https://cdn.progresso.com.br/img/pc/780/530/dn_arquivo/2022/08/design-sem-nome-12.png" 
+           alt="Filosofia" 
+           class="img-fluid rounded-3 shadow-lg mt-4" 
+           style="max-width: 300px;">
     </div>
   </section>
 
-  <!-- Target Audience -->
-  <section class="my-5" id="equipe">
+  <!-- Equipe Section -->
+  <section class="fil-section bg-light" id="equipe">
     <div class="container">
-      <div class="row align-items-center">
+      <div class="row align-items-center g-5">
         <div class="col-lg-6">
           <h2 class="section-title">Nossa Equipe</h2>
           <p class="lead">
-            Estudantes da Escola Estadual Padre João Parreira Villaça do <br>3º Ano Amarelo.
+            Estudantes da Escola Estadual Padre João Parreira Villaça<br>
+            <span class="text-muted">3º Ano Amarelo</span>
           </p>
+          <p class="mt-3">Uma equipe dedicada ao estudo e à reflexão filosófica, buscando compreender as grandes questões da humanidade.</p>
         </div>
         <div class="col-lg-6">
-          <img src="img.jpg" alt="aaaa" class="img-fluid rounded shadow">
+          <img src="img.jpg" alt="Equipe" class="img-fluid rounded-3 shadow">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Features Section -->
-    <section id="integrantes" class="my-5 py-4">
-        <div class="container">
-            <h2 class="section-title">Nossos Integrantes</h2>
-            <div class="row g-4">
-                <!-- Card 1 -->
-                <div class="col-md-4">
-                    <div class="member-card text-center p-4 shadow-lg rounded">
-                    <i class="fas fa-user member-icon mb-3"></i>
-                    <h5 class="card-title">Daniel Mendes</h5>
-                    <hr>
-                    <p class="card-text">Olá, me chamo Daniel Mendes, tenho 17 anos e nasci no dia 04 de janeiro de 2008 em Divinópolis MG, sou registrado como Divinopolitano, mas cresci em Carmo do Cajuru então me considero como Cajuruense, atualmente estudo na série do 3° ano do EM na Escola Estadual Padre João Parreiras Villaça, sou uma pessoa comunicativa e agradável com todos, nas minhas horas vagas gosto de escutar música e ficar pensando na minha vida, gosto também de curtir o tempo com a família e amigos, visando profissionalmente ser empresário na área de veículos.</p>
-                    </div>
-                </div>
+  <!-- Integrantes Section -->
+  <section class="fil-section" id="integrantes">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">Nossos Integrantes</h2>
+      
+      <div class="text-center mb-5">
+        <button class="btn btn-primary btn-lg px-4 py-2" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#collapseIntegrantes"
+                aria-expanded="false"
+                aria-controls="collapseIntegrantes"
+                id="toggleButton">
+          <i class="fas fa-users me-2"></i>Mostrar Integrantes
+        </button>
+      </div>
 
-                <!-- Card 2 -->
-                <div class="col-md-4">
-                    <div class="member-card text-center p-4 shadow-lg rounded">
-                    <i class="fas fa-user member-icon mb-3"></i>
-                    <h5 class="card-title">Júlia Rabelo Pereira</h5>
-                    <hr>
-                    <p class="card-text">Me chamo Júlia Rabelo Pereira, nasci em Divinopólis-MG no dia 13 de fevereiro de 2008, atualmente tenho 17 anos e estou no 3º ano do EM na Escola Estadual Padre João Parreiras Villaça, o que mais gosto de fazer nas horas vagas e aprender e descobrir novos hobbies, meu sonho é atuar em biomedicina ou em investigação forense e perícia criminal.</p>
-                    </div>
-                </div>
+      <div class="collapse" id="collapseIntegrantes">
+        <div class="row g-4">
+          <!-- Daniel Mendes -->
+          <div class="col-md-6 col-lg-4">
+            <div class="member-card text-center p-4 h-100">
+              <i class="fas fa-user-graduate member-icon"></i>
+              <h3>Daniel Mendes</h3>
+              <hr>
+              <p class="text-start">Olá, me chamo Daniel Mendes, tenho 17 anos e nasci no dia 04 de janeiro de 2008 em Divinópolis MG, sou registrado como Divinopolitano, mas cresci em Carmo do Cajuru então me considero como Cajuruense, atualmente estudo na série do 3° ano do EM na Escola Estadual Padre João Parreiras Villaça, sou uma pessoa comunicativa e agradável com todos, nas minhas horas vagas gosto de escutar música e ficar pensando na minha vida, gosto também de curtir o tempo com a família e amigos, visando profissionalmente ser empresário na área de veículos.</p>
+              <div class="mt-auto">
+                <span class="badge bg-secondary">Empreendedor</span>
+              </div>
+            </div>
+          </div>
 
-                <!-- Card 3 -->
-                <div class="col-md-4">
-                    <div class="member-card text-center p-4 shadow-lg rounded">
-                    <i class="fas fa-user member-icon mb-3"></i>
-                    <h5 class="card-title">Vinicius Rabelo de Souza</h5>
-                    <hr>
-                    <p class="card-text">Meu nome é Vinícius Rabelo de Souza, tenho 17 anos , nasci em 13/02/2008 na cidade de Divinópolis, mas moro atualmente em Carmo do Cajuru. Estudo na escola Padre João Parreiras Villaça.Sou uma pessoa muito introvertida mas quando preciso sou comunicativo, gosto de praticar bastante esportes e o que jogo atualmente é o vôlei, que está abrindo grandes portas para mim. Pretendo continuar com isso, ou então me tornar fisioterapeuta.</p>
-                    </div>
+          <!-- Júlia Rabelo Pereira -->
+          <div class="col-md-6 col-lg-4">
+            <div class="member-card text-center p-4 h-100">
+              <i class="fas fa-user-graduate member-icon"></i>
+              <h3>Júlia Rabelo Pereira</h3>
+              <hr>
+              <p class="text-start">Me chamo Júlia Rabelo Pereira, nasci em Divinopólis-MG no dia 13 de fevereiro de 2008, atualmente tenho 17 anos e estou no 3º ano do EM na Escola Estadual Padre João Parreiras Villaça, o que mais gosto de fazer nas horas vagas e aprender e descobrir novos hobbies, meu sonho é atuar em biomedicina ou em investigação forense e perícia criminal.</p>
+              <div class="mt-auto">
+                <span class="badge bg-secondary">Biomedicina</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vinicius Rabelo de Souza -->
+          <div class="col-md-6 col-lg-4">
+            <div class="member-card text-center p-4 h-100">
+              <i class="fas fa-user-graduate member-icon"></i>
+              <h3>Vinicius Rabelo de Souza</h3>
+              <hr>
+              <p class="text-start">Meu nome é Vinícius Rabelo de Souza, tenho 17 anos, nasci em 13/02/2008 na cidade de Divinópolis, mas moro atualmente em Carmo do Cajuru. Estudo na escola Padre João Parreiras Villaça. Sou uma pessoa muito introvertida mas quando preciso sou comunicativo, gosto de praticar bastante esportes e o que jogo atualmente é o vôlei, que está abrindo grandes portas para mim. Pretendo continuar com isso, ou então me tornar fisioterapeuta.</p>
+              <div class="mt-auto">
+                <span class="badge bg-secondary">Esportista</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- João Pedro Rodrigues Pereira -->
+          <div class="col-md-6 col-lg-6">
+            <div class="member-card text-center p-4 h-100">
+              <i class="fas fa-user-graduate member-icon"></i>
+              <h3>João Pedro Rodrigues Pereira</h3>
+              <hr>
+              <p class="text-start">Meu nome é João Pedro Rodrigues Pereira, nasci em Divinopolis-MG, no dia 14 de março de 2008, atualmente tenho 17 anos, estudo na Escola Estadual Padre Joao Parreiras Vilaça e estou no 3 ano do ensino médio, a coisa que mais gosto de fazer é assistir e jogar futebol e a faculdade que eu gostaria de fazer é educação física ou contabilidade.</p>
+              <div class="mt-auto">
+                <span class="badge bg-secondary">Educação Física</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- André Luis -->
+          <div class="col-md-6 col-lg-6">
+            <div class="member-card text-center p-4 h-100">
+              <i class="fas fa-user-graduate member-icon"></i>
+              <h3>André Luis</h3>
+              <hr>
+              <p class="text-start">Opa, meu eu sou o André tenho 17 anos nasci na cidade de divinopolis porem sempre vive minha vida na em Carmo cajuru - MG. Sou uma pessoa introvertida até anti-social, sou um estudante de progração e futuramente quero me tornar um desenvolvedor de jogos digitais publicando minhas próprias criações.</p>
+              <div class="mt-auto">
+                <span class="badge bg-secondary">Desenvolvedor</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filosofia Antiga Section -->
+  <section class="fil-section bg-dark text-light" id="filosofia-antiga">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">📜 Linha do Tempo da Filosofia Grega</h2>
+      <div class="row gy-4">
+        <!-- Século VI a.C. -->
+        <div class="col-md-6 col-lg-4">
+          <div class="era-card h-100">
+            <h3 class="h4 mb-3">Século VI a.C.</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="fas fa-circle text-primary me-2"></i>
+                <strong>Pré-Socráticos:</strong> Tales de Mileto (624–546 a.C.)
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-circle text-primary me-2"></i>
+                <strong>Pré-Socráticos:</strong> Anaximandro (610–546 a.C.)
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-circle text-primary me-2"></i>
+                <strong>Pré-Socráticos:</strong> Pitágoras (570–495 a.C.)
+              </li>
+            </ul>
+          </div>
+          <div class="timeline-connector"></div>
+        </div>
+
+        <!-- Século V a.C. -->
+        <div class="col-md-6 col-lg-4">
+          <div class="era-card h-100">
+            <h3 class="h4 mb-3">Século V a.C.</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="fas fa-circle text-success me-2"></i>
+                <strong>Pré-Socráticos:</strong> Anaxágoras (499–428 a.C.)
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-circle text-warning me-2"></i>
+                <strong>Sofistas:</strong> Protágoras (490–415 a.C.)
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-circle text-info me-2"></i>
+                <strong>Clássico:</strong> Sócrates (469–399 a.C.)
+              </li>
+            </ul>
+          </div>
+          <div class="timeline-connector"></div>
+        </div>
+
+        <!-- Século IV a.C. -->
+        <div class="col-md-6 col-lg-4">
+          <div class="era-card h-100">
+            <h3 class="h4 mb-3">Século IV a.C.</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="fas fa-circle text-info me-2"></i>
+                <strong>Clássico:</strong> Platão (428–348 a.C.)
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-circle text-info me-2"></i>
+                <strong>Clássico:</strong> Aristóteles (384–322 a.C.)
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-circle text-danger me-2"></i>
+                <strong>Cinismo:</strong> Diógenes (413–323 a.C.)
+              </li>
+            </ul>
+          </div>
+          <div class="timeline-connector"></div>
+        </div>
+
+        <!-- Século III a.C. -->
+        <div class="col-md-6 col-lg-4">
+          <div class="era-card h-100">
+            <h3 class="h4 mb-3">Século III a.C.</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="fas fa-circle text-danger me-2"></i>
+                <strong>Epicurismo:</strong> Epicuro (341–270 a.C.)
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-circle text-danger me-2"></i>
+                <strong>Estoicismo:</strong> Zenão (333–263 a.C.)
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-circle text-danger me-2"></i>
+                <strong>Ceticismo:</strong> Pirro (318–272 a.C.)
+              </li>
+            </ul>
+          </div>
+          <div class="timeline-connector"></div>
+        </div>
+
+        <!-- Século II a.C. -->
+        <div class="col-md-6 col-lg-4">
+          <div class="era-card h-100">
+            <h3 class="h4 mb-3">Século II a.C.</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="fas fa-circle text-warning me-2"></i>
+                <strong>Ceticismo Acadêmico:</strong> Carnéades (214–129 a.C.)
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Protágoras Section -->
+  <section class="fil-section bg-light" id="protagoras">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="card border-0 shadow-lg">
+            <div class="card-body p-5">
+              <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">🧠 Protágoras de Abdera</h2>
+                <p class="text-muted">(490–415 a.C.) - O Pai do Relativismo</p>
+              </div>
+              
+              <div class="quote-card">
+                <blockquote class="blockquote">
+                  <p class="fs-4">"O homem é a medida de todas as coisas, das coisas que são, enquanto são, das coisas que não são, enquanto não são."</p>
+                </blockquote>
+              </div>
+
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <h3 class="h4 mb-3">📚 Contexto Histórico</h3>
+                  <p>Protágoras foi um dos principais sofistas gregos, atuando durante o século V a.C., período conhecido como o "Século de Péricles" ou "Século de Ouro de Atenas". Nascido em Abdera, na Trácia, viajou por toda a Grécia ensinando retórica e filosofia.</p>
+                  <p>Os sofistas eram professores itinerantes que cobravam por seus ensinamentos, focando em habilidades práticas como argumentação e persuasão, essenciais para o sucesso na democracia ateniense.</p>
                 </div>
                 
-                <!-- Card 4 -->
                 <div class="col-md-6">
-                    <div class="member-card text-center p-4 shadow-lg rounded">
-                    <i class="fas fa-user member-icon mb-3"></i>
-                    <h5 class="card-title">João Pedro Rodrigues Pereira</h5>
-                    <hr>
-                    <p class="card-text">Meu nome é João Pedro Rodrigues Pereira,nasci em Divinopolis-MG,no dia 14 de março de 2008,atualmente tenho 17 anos, estudo na Escola Estadual Padre Joao Parreiras Vilaça e estou no 3 ano do ensino médio,a coisa que mais gosto de fazer é assistir e jogar futebol e a faculdade que eu gostaria de fazer é educação física ou contabilidade.</p>
-                    </div>
+                  <h3 class="h4 mb-3">🎯 Principais Ideias</h3>
+                  <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Relativismo:</strong> A verdade depende da percepção individual</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Agnosticismo:</strong> "Sobre os deuses, não posso afirmar se existem ou não"</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Educação:</strong> A virtude (areté) pode ser ensinada</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Retórica:</strong> Arte da persuasão como ferramenta política</li>
+                  </ul>
                 </div>
+              </div>
 
-                <!-- Card 5 -->
-                <div class="col-md-6">
-                    <div class="member-card text-center p-4 shadow-lg rounded">
-                    <i class="fas fa-user member-icon mb-3"></i>
-                    <h5 class="card-title">André Luis</h5>
-                    <hr>
-                    <p class="card-text">Opa, meu eu sou o André tenho 17 anos nasci na cidade de divinopilis porem sempre vive minha vida na em Carmo cajuru - MG. Sou uma pessoa introvertida até anti-social, sou um estudante de progração e futuramente quero me tornar um desenvolvedor de jogos digitais publicando minhas próprias criações.</p>
+              <div class="mt-5">
+                <h3 class="h4 mb-3">🏛️ Legado e Influência</h3>
+                <p>Protágoras foi duramente criticado por Platão, que via os sofistas como manipuladores da verdade. No entanto, suas ideias anteciparam muitas discussões modernas sobre:</p>
+                
+                <div class="row g-4 mt-3">
+                  <div class="col-md-4">
+                    <div class="p-3 border rounded">
+                      <h4 class="h5">Relativismo Cultural</h4>
+                      <p class="small">A ideia de que verdades variam entre culturas</p>
                     </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="p-3 border rounded">
+                      <h4 class="h5">Democracia</h4>
+                      <p class="small">A importância da argumentação na política</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="p-3 border rounded">
+                      <h4 class="h5">Filosofia da Linguagem</h4>
+                      <p class="small">O papel da linguagem na construção da realidade</p>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="text-center" id="contato">
+  <footer class="bg-dark text-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5>Blog.Filosofia</h5>
+          <p class="small">Explorando as grandes questões do pensamento humano desde 2024.</p>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5>Links Rápidos</h5>
+          <ul class="list-unstyled">
+            <li><a href="#inicio" class="text-light">Início</a></li>
+            <li><a href="#filosofia-antiga" class="text-light">Linha do Tempo</a></li>
+            <li><a href="#protagoras" class="text-light">Protágoras</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Contato</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-envelope me-2"></i> contato@blogfilosofia.com</li>
+            <li><i class="fas fa-school me-2"></i> E.E. Padre João Parreira Villaça</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-4">
+      <p class="text-center mb-0 small">&copy; 2024 Blog de Filosofia. Todos os direitos reservados.</p>
+    </div>
   </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Theme Toggle
+    function toggleTheme() {
+      const body = document.body;
+      const theme = body.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-bs-theme', theme);
+      document.querySelector('.theme-switcher i').className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+      
+      // Salvar preferência
+      localStorage.setItem('theme', theme);
+    }
+
+    // Carregar tema salvo
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.setAttribute('data-bs-theme', 'dark');
+      document.querySelector('.theme-switcher i').className = 'fas fa-sun';
+    }
+
+    // Animação dos cards de integrantes
+    const toggleButton = document.getElementById('toggleButton');
+    const collapseIntegrantes = document.getElementById('collapseIntegrantes');
+
+    collapseIntegrantes.addEventListener('show.bs.collapse', () => {
+      toggleButton.innerHTML = '<i class="fas fa-users me-2"></i>Esconder Integrantes';
+    });
+
+    collapseIntegrantes.addEventListener('hide.bs.collapse', () => {
+      toggleButton.innerHTML = '<i class="fas fa-users me-2"></i>Mostrar Integrantes';
+    });
+
+    // Animação ao scroll
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.era-card').forEach((card, index) => {
+        const cardPosition = card.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if(cardPosition < screenPosition) {
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, index * 200);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
