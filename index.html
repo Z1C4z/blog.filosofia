@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +10,9 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --primary-color: #2c3e50;
@@ -36,20 +39,23 @@
       line-height: 1.6;
     }
 
-    h1, h2, h3, h4 {
+    h1,
+    h2,
+    h3,
+    h4 {
       font-family: 'Philosopher', sans-serif;
     }
 
     .navbar {
       background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     .hero-section {
       position: relative;
       padding: 8rem 0;
       background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.8)),
-                  url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1920&q=80');
+        url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
       color: white;
@@ -60,14 +66,14 @@
       border: none;
       border-radius: 15px;
       overflow: hidden;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
       height: 100%;
     }
 
     .member-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     }
 
     .member-icon {
@@ -96,11 +102,11 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
     .era-card {
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 15px;
       padding: 2rem;
       margin-bottom: 2rem;
@@ -110,7 +116,7 @@
 
     .era-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
 
     .quote-card {
@@ -146,6 +152,50 @@
       height: 40px;
       margin: 0 auto;
       width: 1px;
+    }
+
+    .philosophers-section {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+
+    .philosopher-card {
+      transition: transform 0.3s ease;
+      border-radius: 0.5rem;
+    }
+
+    .philosopher-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .philosopher-portrait {
+      position: relative;
+      overflow: hidden;
+      min-height: 300px;
+    }
+
+    .portrait-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .philosopher-card:hover .portrait-overlay {
+      opacity: 1;
+    }
+
+    .divider {
+      background: linear-gradient(90deg, rgba(13, 110, 253, 1) 0%, rgba(255, 193, 7, 1) 100%);
+    }
+
+    blockquote {
+      position: relative;
+      padding-left: 1.5rem;
+      border-left: 3px solid #0d6efd;
     }
   </style>
 </head>
@@ -183,10 +233,8 @@
     <div class="container text-center">
       <h1 class="display-3 fw-bold mb-4">Bem-vindo ao Blog de Filosofia</h1>
       <p class="lead mb-4">Explorando as grandes questões do pensamento humano</p>
-      <img src="https://cdn.progresso.com.br/img/pc/780/530/dn_arquivo/2022/08/design-sem-nome-12.png" 
-           alt="Filosofia" 
-           class="img-fluid rounded-3 shadow-lg mt-4" 
-           style="max-width: 300px;">
+      <img src="https://cdn.progresso.com.br/img/pc/780/530/dn_arquivo/2022/08/design-sem-nome-12.png" alt="Filosofia"
+        class="img-fluid rounded-3 shadow-lg mt-4" style="max-width: 300px;">
     </div>
   </section>
 
@@ -200,7 +248,8 @@
             Estudantes da Escola Estadual Padre João Parreira Villaça<br>
             <span class="text-muted">3º Ano Amarelo</span>
           </p>
-          <p class="mt-3">Uma equipe dedicada ao estudo e à reflexão filosófica, buscando compreender as grandes questões da humanidade.</p>
+          <p class="mt-3">Uma equipe dedicada ao estudo e à reflexão filosófica, buscando compreender as grandes
+            questões da humanidade.</p>
         </div>
         <div class="col-lg-6">
           <img src="img.jpg" alt="Equipe" class="img-fluid rounded-3 shadow">
@@ -213,15 +262,11 @@
   <section class="fil-section" id="integrantes">
     <div class="container">
       <h2 class="section-title text-center mb-5">Nossos Integrantes</h2>
-      
+
       <div class="text-center mb-5">
-        <button class="btn btn-primary btn-lg px-4 py-2" 
-                type="button" 
-                data-bs-toggle="collapse" 
-                data-bs-target="#collapseIntegrantes"
-                aria-expanded="false"
-                aria-controls="collapseIntegrantes"
-                id="toggleButton">
+        <button class="btn btn-primary btn-lg px-4 py-2" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseIntegrantes" aria-expanded="false" aria-controls="collapseIntegrantes"
+          id="toggleButton">
           <i class="fas fa-users me-2"></i>Mostrar Integrantes
         </button>
       </div>
@@ -234,7 +279,12 @@
               <i class="fas fa-user-graduate member-icon"></i>
               <h3>Daniel Mendes</h3>
               <hr>
-              <p class="text-start">Olá, me chamo Daniel Mendes, tenho 17 anos e nasci no dia 04 de janeiro de 2008 em Divinópolis MG, sou registrado como Divinopolitano, mas cresci em Carmo do Cajuru então me considero como Cajuruense, atualmente estudo na série do 3° ano do EM na Escola Estadual Padre João Parreiras Villaça, sou uma pessoa comunicativa e agradável com todos, nas minhas horas vagas gosto de escutar música e ficar pensando na minha vida, gosto também de curtir o tempo com a família e amigos, visando profissionalmente ser empresário na área de veículos.</p>
+              <p class="text-start">Olá, me chamo Daniel Mendes, tenho 17 anos e nasci no dia 04 de janeiro de 2008 em
+                Divinópolis MG, sou registrado como Divinopolitano, mas cresci em Carmo do Cajuru então me considero
+                como Cajuruense, atualmente estudo na série do 3° ano do EM na Escola Estadual Padre João Parreiras
+                Villaça, sou uma pessoa comunicativa e agradável com todos, nas minhas horas vagas gosto de escutar
+                música e ficar pensando na minha vida, gosto também de curtir o tempo com a família e amigos, visando
+                profissionalmente ser empresário na área de veículos.</p>
               <div class="mt-auto">
                 <span class="badge bg-secondary">Empreendedor</span>
               </div>
@@ -247,7 +297,10 @@
               <i class="fas fa-user-graduate member-icon"></i>
               <h3>Júlia Rabelo Pereira</h3>
               <hr>
-              <p class="text-start">Me chamo Júlia Rabelo Pereira, nasci em Divinopólis-MG no dia 13 de fevereiro de 2008, atualmente tenho 17 anos e estou no 3º ano do EM na Escola Estadual Padre João Parreiras Villaça, o que mais gosto de fazer nas horas vagas e aprender e descobrir novos hobbies, meu sonho é atuar em biomedicina ou em investigação forense e perícia criminal.</p>
+              <p class="text-start">Me chamo Júlia Rabelo Pereira, nasci em Divinopólis-MG no dia 13 de fevereiro de
+                2008, atualmente tenho 17 anos e estou no 3º ano do EM na Escola Estadual Padre João Parreiras Villaça,
+                o que mais gosto de fazer nas horas vagas e aprender e descobrir novos hobbies, meu sonho é atuar em
+                biomedicina ou em investigação forense e perícia criminal.</p>
               <div class="mt-auto">
                 <span class="badge bg-secondary">Biomedicina</span>
               </div>
@@ -260,20 +313,27 @@
               <i class="fas fa-user-graduate member-icon"></i>
               <h3>Vinicius Rabelo de Souza</h3>
               <hr>
-              <p class="text-start">Meu nome é Vinícius Rabelo de Souza, tenho 17 anos, nasci em 13/02/2008 na cidade de Divinópolis, mas moro atualmente em Carmo do Cajuru. Estudo na escola Padre João Parreiras Villaça. Sou uma pessoa muito introvertida mas quando preciso sou comunicativo, gosto de praticar bastante esportes e o que jogo atualmente é o vôlei, que está abrindo grandes portas para mim. Pretendo continuar com isso, ou então me tornar fisioterapeuta.</p>
+              <p class="text-start">Meu nome é Vinícius Rabelo de Souza, tenho 17 anos, nasci em 13/02/2008 na cidade de
+                Divinópolis, mas moro atualmente em Carmo do Cajuru. Estudo na escola Padre João Parreiras Villaça. Sou
+                uma pessoa muito introvertida mas quando preciso sou comunicativo, gosto de praticar bastante esportes e
+                o que jogo atualmente é o vôlei, que está abrindo grandes portas para mim. Pretendo continuar com isso,
+                ou então me tornar fisioterapeuta.</p>
               <div class="mt-auto">
                 <span class="badge bg-secondary">Esportista</span>
               </div>
             </div>
           </div>
-          
+
           <!-- João Pedro Rodrigues Pereira -->
           <div class="col-md-6 col-lg-6">
             <div class="member-card text-center p-4 h-100">
               <i class="fas fa-user-graduate member-icon"></i>
               <h3>João Pedro Rodrigues Pereira</h3>
               <hr>
-              <p class="text-start">Meu nome é João Pedro Rodrigues Pereira, nasci em Divinopolis-MG, no dia 14 de março de 2008, atualmente tenho 17 anos, estudo na Escola Estadual Padre Joao Parreiras Vilaça e estou no 3 ano do ensino médio, a coisa que mais gosto de fazer é assistir e jogar futebol e a faculdade que eu gostaria de fazer é educação física ou contabilidade.</p>
+              <p class="text-start">Meu nome é João Pedro Rodrigues Pereira, nasci em Divinopolis-MG, no dia 14 de março
+                de 2008, atualmente tenho 17 anos, estudo na Escola Estadual Padre Joao Parreiras Vilaça e estou no 3
+                ano do ensino médio, a coisa que mais gosto de fazer é assistir e jogar futebol e a faculdade que eu
+                gostaria de fazer é educação física ou contabilidade.</p>
               <div class="mt-auto">
                 <span class="badge bg-secondary">Educação Física</span>
               </div>
@@ -286,7 +346,10 @@
               <i class="fas fa-user-graduate member-icon"></i>
               <h3>André Luis</h3>
               <hr>
-              <p class="text-start">Opa, meu eu sou o André tenho 17 anos nasci na cidade de divinopolis porem sempre vive minha vida na em Carmo cajuru - MG. Sou uma pessoa introvertida até anti-social, sou um estudante de progração e futuramente quero me tornar um desenvolvedor de jogos digitais publicando minhas próprias criações.</p>
+              <p class="text-start">Opa, meu eu sou o André tenho 17 anos nasci na cidade de divinopolis porem sempre
+                vive minha vida na em Carmo cajuru - MG. Sou uma pessoa introvertida até anti-social, sou um estudante
+                de progração e futuramente quero me tornar um desenvolvedor de jogos digitais publicando minhas próprias
+                criações.</p>
               <div class="mt-auto">
                 <span class="badge bg-secondary">Desenvolvedor</span>
               </div>
@@ -417,35 +480,44 @@
                 <h2 class="display-5 fw-bold">🧠 Protágoras de Abdera</h2>
                 <p class="text-muted">(490–415 a.C.) - O Pai do Relativismo</p>
               </div>
-              
+
               <div class="quote-card">
                 <blockquote class="blockquote">
-                  <p class="fs-4">"O homem é a medida de todas as coisas, das coisas que são, enquanto são, das coisas que não são, enquanto não são."</p>
+                  <p class="fs-4">"O homem é a medida de todas as coisas, das coisas que são, enquanto são, das coisas
+                    que não são, enquanto não são."</p>
                 </blockquote>
               </div>
 
               <div class="row g-4">
                 <div class="col-md-6">
                   <h3 class="h4 mb-3">📚 Contexto Histórico</h3>
-                  <p>Protágoras foi um dos principais sofistas gregos, atuando durante o século V a.C., período conhecido como o "Século de Péricles" ou "Século de Ouro de Atenas". Nascido em Abdera, na Trácia, viajou por toda a Grécia ensinando retórica e filosofia.</p>
-                  <p>Os sofistas eram professores itinerantes que cobravam por seus ensinamentos, focando em habilidades práticas como argumentação e persuasão, essenciais para o sucesso na democracia ateniense.</p>
+                  <p>Protágoras foi um dos principais sofistas gregos, atuando durante o século V a.C., período
+                    conhecido como o "Século de Péricles" ou "Século de Ouro de Atenas". Nascido em Abdera, na Trácia,
+                    viajou por toda a Grécia ensinando retórica e filosofia.</p>
+                  <p>Os sofistas eram professores itinerantes que cobravam por seus ensinamentos, focando em habilidades
+                    práticas como argumentação e persuasão, essenciais para o sucesso na democracia ateniense.</p>
                 </div>
-                
+
                 <div class="col-md-6">
                   <h3 class="h4 mb-3">🎯 Principais Ideias</h3>
                   <ul class="list-unstyled">
-                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Relativismo:</strong> A verdade depende da percepção individual</li>
-                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Agnosticismo:</strong> "Sobre os deuses, não posso afirmar se existem ou não"</li>
-                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Educação:</strong> A virtude (areté) pode ser ensinada</li>
-                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Retórica:</strong> Arte da persuasão como ferramenta política</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Relativismo:</strong>
+                      A verdade depende da percepção individual</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>
+                      <strong>Agnosticismo:</strong> "Sobre os deuses, não posso afirmar se existem ou não"</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Educação:</strong> A
+                      virtude (areté) pode ser ensinada</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Retórica:</strong>
+                      Arte da persuasão como ferramenta política</li>
                   </ul>
                 </div>
               </div>
 
               <div class="mt-5">
                 <h3 class="h4 mb-3">🏛️ Legado e Influência</h3>
-                <p>Protágoras foi duramente criticado por Platão, que via os sofistas como manipuladores da verdade. No entanto, suas ideias anteciparam muitas discussões modernas sobre:</p>
-                
+                <p>Protágoras foi duramente criticado por Platão, que via os sofistas como manipuladores da verdade. No
+                  entanto, suas ideias anteciparam muitas discussões modernas sobre:</p>
+
                 <div class="row g-4 mt-3">
                   <div class="col-md-4">
                     <div class="p-3 border rounded">
@@ -465,6 +537,149 @@
                       <p class="small">O papel da linguagem na construção da realidade</p>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILÓSOFOS CLÁSSICOS -->
+  <section class="philosophers-section py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-4 fw-bold text-dark mb-3">Mestres do Pensamento</h2>
+        <p class="lead text-muted">Explorando as ideias que moldaram a civilização ocidental</p>
+        <div class="divider mx-auto bg-primary" style="width: 80px; height: 4px;"></div>
+      </div>
+
+      <!-- Sócrates -->
+      <div class="card philosopher-card mb-5 border-0 shadow-lg overflow-hidden">
+        <div class="row g-0">
+          <div class="col-md-4 philosopher-portrait">
+            <img src="socrates.jpeg" alt="Sócrates" class="img-fluid h-100 w-100 object-fit-cover">
+            <div class="portrait-overlay d-flex align-items-center justify-content-center">
+              <span class="fs-1 text-white fw-bold">470-399 a.C.</span>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body p-4">
+              <h3 class="card-title display-6 text-primary mb-3">Sócrates</h3>
+              <div class="philosopher-quote mb-4 p-3 bg-light rounded">
+                <blockquote class="mb-0 font-italic">"Só sei que nada sei"</blockquote>
+              </div>
+              <div class="philosopher-bio mb-4">
+                <h5 class="text-uppercase small text-muted mb-2">O Pai da Filosofia Ocidental</h5>
+                <p class="card-text">Mestre de Platão e figura central da filosofia grega, Sócrates revolucionou o
+                  pensamento com seu método dialético. Sua busca incansável pela verdade através do questionamento
+                  sistemático estabeleceu os fundamentos da filosofia ocidental.</p>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <h6 class="text-uppercase small text-muted mb-2">Contribuições</h6>
+                  <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Método Socrático</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Ética intelectual</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Ironia filosófica</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h6 class="text-uppercase small text-muted mb-2">Legado</h6>
+                  <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-book text-primary me-2"></i>Influência em Platão</li>
+                    <li class="mb-2"><i class="fas fa-book text-primary me-2"></i>Fundamentos da ética</li>
+                    <li class="mb-2"><i class="fas fa-book text-primary me-2"></i>Modelo de pedagogia</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Platão -->
+      <div class="card philosopher-card mb-5 border-0 shadow-lg overflow-hidden">
+        <div class="row g-0 flex-row-reverse">
+          <div class="col-md-4 philosopher-portrait">
+            <img src="platao.jpeg" alt="Platão" class="img-fluid h-100 w-100 object-fit-cover">
+            <div class="portrait-overlay d-flex align-items-center justify-content-center">
+              <span class="fs-1 text-white fw-bold">428-348 a.C.</span>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body p-4">
+              <h3 class="card-title display-6 text-primary mb-3">Platão</h3>
+              <div class="philosopher-quote mb-4 p-3 bg-light rounded">
+                <blockquote class="mb-0 font-italic">"O importante não é viver, mas viver bem"</blockquote>
+              </div>
+              <div class="philosopher-bio mb-4">
+                <h5 class="text-uppercase small text-muted mb-2">O Arquitecto do Idealismo</h5>
+                <p class="card-text">Fundador da Academia e autor de diálogos filosóficos fundamentais, Platão
+                  desenvolveu uma visão metafísica que influenciaria toda a tradição ocidental. Sua teoria das Formas e
+                  análise da alma humana continuam relevantes após milênios.</p>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <h6 class="text-uppercase small text-muted mb-2">Contribuições</h6>
+                  <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Teoria das Formas</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Mito da Caverna</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Filosofia Política</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h6 class="text-uppercase small text-muted mb-2">Legado</h6>
+                  <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-book text-primary me-2"></i>Fundador do Idealismo</li>
+                    <li class="mb-2"><i class="fas fa-book text-primary me-2"></i>Autor de "A República"</li>
+                    <li class="mb-2"><i class="fas fa-book text-primary me-2"></i>Criador da Academia</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aristóteles -->
+      <div class="card philosopher-card mb-5 border-0 shadow-lg overflow-hidden">
+        <div class="row g-0">
+          <div class="col-md-4 philosopher-portrait">
+            <img src="aristotales.jpeg" alt="Aristóteles" class="img-fluid h-100 w-100 object-fit-cover">
+            <div class="portrait-overlay d-flex align-items-center justify-content-center">
+              <span class="fs-1 text-white fw-bold">384-322 a.C.</span>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body p-4">
+              <h3 class="card-title display-6 text-primary mb-3">Aristóteles</h3>
+              <div class="philosopher-quote mb-4 p-3 bg-light rounded">
+                <blockquote class="mb-0 font-italic">"O homem é por natureza um animal político"</blockquote>
+              </div>
+              <div class="philosopher-bio mb-4">
+                <h5 class="text-uppercase small text-muted mb-2">O Primeiro Enciclopedista</h5>
+                <p class="card-text">Discípulo de Platão e tutor de Alexandre, o Grande, Aristóteles sistematizou o
+                  conhecimento em diversas áreas. Seu pensamento lógico e empírico estabeleceu as bases do método
+                  científico e da filosofia sistemática.</p>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <h6 class="text-uppercase small text-muted mb-2">Contribuições</h6>
+                  <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Lógica Aristotélica</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Metafísica</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Ética a Nicômaco</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h6 class="text-uppercase small text-muted mb-2">Legado</h6>
+                  <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-book text-primary me-2"></i>Pai da Lógica</li>
+                    <li class="mb-2"><i class="fas fa-book text-primary me-2"></i>Classificação do saber</li>
+                    <li class="mb-2"><i class="fas fa-book text-primary me-2"></i>Influência na Escolástica</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -512,7 +727,7 @@
       const theme = body.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
       body.setAttribute('data-bs-theme', theme);
       document.querySelector('.theme-switcher i').className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-      
+
       // Salvar preferência
       localStorage.setItem('theme', theme);
     }
@@ -540,8 +755,8 @@
       document.querySelectorAll('.era-card').forEach((card, index) => {
         const cardPosition = card.getBoundingClientRect().top;
         const screenPosition = window.innerHeight / 1.3;
-        
-        if(cardPosition < screenPosition) {
+
+        if (cardPosition < screenPosition) {
           setTimeout(() => {
             card.style.opacity = '1';
             card.style.transform = 'translateY(0)';
@@ -551,4 +766,5 @@
     });
   </script>
 </body>
+
 </html>
